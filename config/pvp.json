@@ -1,0 +1,14 @@
+{
+  "profile": "pvp",
+  "renderDistance": 4,
+  "particles": false,
+  "clouds": false,
+  "entityShadows": false,
+  "fancyGraphics": false,
+  "smoothLighting": false,
+  "viewBobbing": false,
+  "dynamicLights": false,
+  "maxFPS": 1000,
+  "lowLatency": true,
+  "minimalHUD": true
+}
