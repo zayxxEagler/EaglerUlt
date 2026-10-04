@@ -1,1 +1,52 @@
+name: EaglerUltimate Build
 
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout EaglerUltimate
+        uses: actions/checkout@v4
+
+      - name: Set up Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+          cache: gradle
+
+      - name: Download EaglercraftX workspace
+        run: |
+          git clone --depth 1 \
+            https://github.com/Eaglercraft-Archive/EaglercraftX-1.8-workspace.git \
+            upstream
+
+      - name: Show build environment
+        run: |
+          java -version
+          git --version
+          ls -la
+          ls -la upstream
+
+      - name: Prepare build
+        working-directory: upstream
+        run: |
+          chmod +x gradlew
+
+      - name: Build
+        working-directory: upstream
+        run: |
+          ./gradlew --version
+
+      - name: Upload build workspace
+        uses: actions/upload-artifact@v4
+        with:
+          name: eaglerultimate-build
+          path: upstream/
+          retention-days: 7
