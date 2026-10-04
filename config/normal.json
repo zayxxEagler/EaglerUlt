@@ -1,0 +1,12 @@
+{
+  "profile": "normal",
+  "renderDistance": 8,
+  "particles": true,
+  "clouds": true,
+  "entityShadows": false,
+  "fancyGraphics": false,
+  "smoothLighting": false,
+  "viewBobbing": true,
+  "dynamicLights": false,
+  "maxFPS": 1000
+}
